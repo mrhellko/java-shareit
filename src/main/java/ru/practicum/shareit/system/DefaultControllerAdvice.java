@@ -26,6 +26,7 @@ public class DefaultControllerAdvice {
     public ResponseEntity<Response> noEmailExceptionHandler(Exception e) {
         return new ResponseEntity<>(new Response(e), HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(DuplicateEmailException.class)
     public ResponseEntity<Response> duplicateEmailExceptionHandler(Exception e) {
         return new ResponseEntity<>(new Response(e), HttpStatus.CONFLICT);
