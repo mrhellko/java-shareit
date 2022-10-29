@@ -20,7 +20,7 @@ public class InMemoryItemDao implements ItemDao {
     private final Map<Integer, Item> data = new HashMap<>();
 
     @Override
-    public Item save(final Item item) {
+    public Item save(Item item) {
         int id;
         if (item.getId() == null) {
             id = idProvider.getId();

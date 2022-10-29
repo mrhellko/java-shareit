@@ -17,13 +17,13 @@ public class ItemServiceImpl implements ItemService {
     private final ItemDao itemDao;
 
     @Override
-    public Item addItem(final Item item, final User user) {
+    public Item addItem(Item item, User user) {
         item.setOwner(user);
         return itemDao.save(item);
     }
 
     @Override
-    public Item editItem(final int itemId, final Item newItem, final User user) {
+    public Item editItem(int itemId, Item newItem, User user) {
         Item item = itemDao.findById(itemId);
         checkAccess(user, item.getOwner());
         if (newItem.getName() != null) {
